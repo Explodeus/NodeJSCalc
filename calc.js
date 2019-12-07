@@ -3,15 +3,8 @@ const readline = require('readline');
 
 var express = require('express');
 
-var  routes = require('./routes.js');
 var calc = express();
 
-calc.use('/', routes);
-
-var http = require('http');
-
-var listener = calc.listen(8080, function(){
-    console.log('Listening on port ' + listener.address().port); //Listening on port 8080
   
   
 
@@ -24,6 +17,21 @@ const rl = readline.createInterface({
 //welcome screen
 console.log(`
 Calc.js
+
+_____________________
+|  _________________  |
+| | VSokha       0. | |
+| |_________________| |
+|  ___ ___ ___   ___  |
+| | 7 | 8 | 9 | | + | |
+| |___|___|___| |___| |
+| | 4 | 5 | 6 | | - | |
+| |___|___|___| |___| |
+| | 1 | 2 | 3 | | x | |
+| |___|___|___| |___| |
+| | . | 0 | = | | / | |
+| |___|___|___| |___| |
+|_____________________|
 
 Welcome to the Node.js Calculator app!
 Version: 1.0.0.
@@ -57,9 +65,6 @@ Enter your choice: `, (choice) => {
       case '3':
         console.log(`The product of ${x} and ${y} is ${operations.multiply(x, y)}.`);
         break;
-      // case '4':
-      //   console.log(`The quotient of ${x} and ${y} is ${operations.divide(x, y)}.`);
-      //   break;
       default:
         console.log('Please restart the program and select a number between 1 and 4.');
         break;
@@ -69,6 +74,6 @@ Enter your choice: `, (choice) => {
     });
   });
 });
-});
+
 
 module.exports = calc;
